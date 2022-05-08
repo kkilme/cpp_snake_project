@@ -24,15 +24,18 @@
     <ClInclude Include="curses.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="GameLuncher.h">
+    <ClInclude Include="Game.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="HomeMenu.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="snake.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameLuncher.cpp">
+    <ClCompile Include="Game.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="HomeMenu.cpp">
@@ -42,6 +45,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="snake.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

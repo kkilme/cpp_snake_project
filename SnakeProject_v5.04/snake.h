@@ -1,0 +1,19 @@
+#include <vector>
+
+using std::vector;
+
+class SnakePart { //snake¸¦ ÀÌ·ç´Â ÇÑÄ­ÇÑÄ­ÀÇ ºÎºÐ - x,yÁÂÇ¥¸¦ °¡Áü
+    
+public:
+    int x;
+    int y;
+    SnakePart(int xpos, int ypos) {
+        x = xpos;
+        y = ypos;
+    }
+    SnakePart() {
+        x = 0;
+        y = 0;
+    }
+};
+

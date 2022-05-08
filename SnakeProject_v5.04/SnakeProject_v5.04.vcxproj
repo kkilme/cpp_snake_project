@@ -20,16 +20,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="curses.h" />
-    <ClInclude Include="GameLuncher.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="HomeMenu.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="panel.h" />
+    <ClInclude Include="snake.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameLuncher.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="HomeMenu.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="snake.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="structure.txt" />
