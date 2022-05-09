@@ -12,8 +12,8 @@ void Map::getMap(WINDOW* window, int stage)
 }
 
 // 맵 특정위치 변경
-// t : snake tail, h : snake head, n : null(빈공간)
-void Map::setMap(int stage, int x, int y, char k = 'n') {
+// k는 변경할 종류를 나타냄. t : snake tail, h : snake head, n : null(빈공간)
+void Map::setMap(int stage, int x, int y, char k) {
     if (k == 'n') {
         mapList[stage][y][x] = 32;
     }

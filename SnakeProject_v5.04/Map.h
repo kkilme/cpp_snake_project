@@ -7,7 +7,7 @@ class Map {
 public:
     // 맵을 화면에 새로운 window로 보여줌
     void getMap(WINDOW* window, int stage);
-    void setMap(int stage, int x, int y, char k);
+    void setMap(int stage, int x, int y, char k = 'n');
 
     // '1': wall, '2':immune wall, '3': snake head, '4': snake tail, 32 :blank
     // 세로 30줄 , 가로 30줄 + '\0'(줄바꿈)
