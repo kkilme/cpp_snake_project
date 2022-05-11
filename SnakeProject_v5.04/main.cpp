@@ -13,7 +13,7 @@ int main() {
 
     
     //선택 받아오기
-    char selectedNum = getch(); 
+    char selectedNum = getch();
 
     if (selectedNum == '1') { //1선택시 게임 스타트
         //game에서 stage띄우기

@@ -18,7 +18,7 @@ vector<SnakePart> makeSnake(int stage) {
     tempsnake.push_back(SnakePart(17, 19));
     /**********************************/
 
-    headDir = 0; // 처음 머리 방향은 위쪽
+    headDir = UP; // 처음 머리 방향은 위쪽
     return tempsnake;
 }
 
@@ -70,7 +70,7 @@ bool moveSnake(int stage) {
     }
     else if(map.mapList[stage][headNextY][headNextX] == '4' && !(headNextX == snake[snake.size()-1].x && headNextY == snake[snake.size() - 1].y)) { //꼬리와 충돌
         return true;
-    }
+    } //else if(아이템과 충돌) // else if(게이트와 충돌) -- 응용가능
     else { // snake move logic - 자세한 내용은 struct.txt 참조
         int PrevX = snake[0].x;
         int PrevY = snake[0].y;
