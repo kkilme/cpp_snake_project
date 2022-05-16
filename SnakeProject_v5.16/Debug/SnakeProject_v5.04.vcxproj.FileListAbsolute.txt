@@ -1,3 +1,0 @@
-C:\Users\nobin\Source\Repos\cpp_project\SnakeProject_v5.04\Debug\SnakeProject_v5.04.vcxproj.CopyComplete
-C:\Users\nobin\Source\Repos\cpp_project\SnakeProject_v5.04\Debug\SnakeProject_v5.04.exe
-C:\Users\nobin\Source\Repos\cpp_project\SnakeProject_v5.04\Debug\pdcurses.dll
