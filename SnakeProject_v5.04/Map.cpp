@@ -1,6 +1,7 @@
 #include "Map.h"
 #include "curses.h"
 
+
 // 맵을 화면에 새로운 window로 보여줌
 void Map::getMap(WINDOW* window, int stage)
 {
@@ -24,3 +25,6 @@ void Map::setMap(int stage, int x, int y, char k) {
         mapList[stage][y][x] = '4';
     }
 }
+
+
+

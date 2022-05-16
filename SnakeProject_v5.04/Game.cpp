@@ -2,11 +2,14 @@
 #include "curses.h"
 #include "Map.h"
 #include "snake.h"
+#include "ItemClass.h"
+
 
 vector<SnakePart> snake;
 Map map;
 WINDOW* win1;
 extern int headDir;
+ItemClass item;
 
 void Game::launchGame()
 {
@@ -38,6 +41,13 @@ bool Game::updateScreen() {
         map.setMap(stage, snake[i].x, snake[i].y, 't'); //snake 꼬리 그리기
     }
     map.getMap(win1, stage); //출력
+    item.itemCreator(stage); //아이템생성
+    item.itemDeleter(stage); //아이템 맵에서 제거
+
+    if (snake.size() < 3) {// snake 길이가 3보다작으면 gameover
+        gameover = true ;
+    }
+    
     wrefresh(win1);
 
     /***********************테스트용 코드*************************/
@@ -58,5 +68,7 @@ void Game::nextStage() {
     stage++;
     snake = makeSnake(stage); // snake 다시 만듦
     map.getMap(win1, stage); // 맵 받아옴
+    item.listOfItem.clear(); //메모리관리를 위해 아이템관리하는 백터 초기화
+    item.countItem = 0; // 아이템 갯수 0으로 변경
     wrefresh(win1);
 }
