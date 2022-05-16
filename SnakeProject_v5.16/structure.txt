@@ -1,0 +1,38 @@
+							  main
+								|
+					HomeMenu (homeMenu만 print)   <------------------------------
+								|												|
+			selectMenu (menu 고르면 동작, 고른 곳으로 보내줌)						|
+		|						|								|				|
+	gameluncher			records(record확인,stage별)		exit	|
+		|																		|
+	getMap
+		|																		|
+	Play																		|
+		|																		|
+	game over - - - - - -  enterRecords(기록창 띄우기) - - - -- - - - - - - - - -
+
+
+
+
+
+	현재 : 시작창에서 스테이지 및 record, exit을 모두 고르게되어있음.
+	하고싶은것 : 1,startgame 2,record 3,exit로 나누고, startgame눌렀을때 스테이지 선택창뜨게  //5.4 23:30
+
+--------------------------------------------------------------------------------------------------------
+gameluncher -> game (이름 바꿈)
+
+snake : SnakePart 객체로 이루어진 vector(배열)형식, SnakePart는 각각 x와 y좌표를 가지고 있음. 즉 snake = [(15,16),(15,17),(15,18)]의 꼴이다. snake[0]이 머리고 나머진 꼬리가 된다.
+
+##snake logic
+snake = [(15,16),(15,17),(15,18)]라 가정
+
+방향키를 입력받아 headDir값을 설정 - 0,1,2,3 값을 가질 수 있음. 여기서 0이라 가정
+int dir[4][2] = { {0,-1},{1,0},{0,1},{-1,0} }. 각각 위, 오른쪽, 아래, 왼쪽을 가리킴
+머리의 다음 좌표를 나타내는 headNextX와 headNextY는 snake[0](머리)의 좌표에 dir[headDir]을 더한 값임. 즉 headNextX = 15, headNextY = 15가 됨
+이 두 값으로 다음 머리 위치의 벽/꼬리/아이템 등과의 충돌을 감지하고 게임 오버와 같은 코드 실행
+
+이후 과정은 앞의 두 변수를 사용해 머리의 좌표를 변경하고, snakepart의 각 좌표를 한칸씩 뒤로 밀기. snake[0]의 좌표가 snake[1]의 좌표가 되고 snake[1]의 좌표는 snake[2]의 좌표가 되는 식
+즉 snake = [(15,16),(15,17),(15,18)]에서 [(15,15),(15,16),(15,17)]이 된다. 이를 통해 뱀이 한칸씩 움직이는 것처럼 보임.
+
+5 : increase item,  6 : decrease item
