@@ -3,20 +3,22 @@
 #include "Map.h"
 #include "snake.h"
 #include "ItemClass.h"
+#include "Score.h"
 
 
 vector<SnakePart> snake;
 Map map;
-WINDOW* win1;
+WINDOW* win1,* win2;
 extern int headDir;
 ItemClass item;
+Score score;
 
 void Game::launchGame()
 {
     //컬러 설정
     start_color();
     init_pair(1, COLOR_WHITE, COLOR_GREEN);
-    
+    init_pair(3, COLOR_BLACK, COLOR_WHITE);
     //새로운 창 만들기
     win1 = newwin(40, 40, 3, 3);
     wbkgd(win1, COLOR_PAIR(1));
@@ -25,13 +27,25 @@ void Game::launchGame()
     keypad(stdscr, true); // 키패드 값도 입력받을 수 있게 해줌. 이렇게 안할 시 방향키 입력이 안받아짐..
     attroff(COLOR_PAIR(1)); //colo_pair 사용종료.
     
+    // test
+    
+    win2 = newwin(20, 40, 13, 53);
+    wbkgd(win2, COLOR_PAIR(3));
+    wborder(win2, '|', '|', '-', '-', '+', '+', '+', '+');
+    nodelay(stdscr, true);//getch()의 대기 시간 없앰. 원래 키를 받아오기 전까지 프로그램이 멈추지만 그렇지 않게 설정(하는듯)
+    keypad(stdscr, true); // 키패드 값도 입력받을 수 있게 해줌. 이렇게 안할 시 방향키 입력이 안받아짐..
+    attroff(COLOR_PAIR(3)); //colo_pair 사용종료.
+    // test
+
     snake = makeSnake(stage); // snake 생성
-  
-    // 창에 맵 불러오기 
+    score.setSnakeLength(snake.size()); // 점수판에 초기 뱀 길이 입력
+    map.setGate(stage);
+    // 창에 맵 불러오기
     map.getMap(win1, stage);
 
     //화면갱신
     wrefresh(win1);
+    wrefresh(win2);
 }
 
 bool Game::updateScreen() {
@@ -41,6 +55,7 @@ bool Game::updateScreen() {
         map.setMap(stage, snake[i].x, snake[i].y, 't'); //snake 꼬리 그리기
     }
     map.getMap(win1, stage); //출력
+    score.updateScore(win2);
     item.itemCreator(stage); //아이템생성
     item.itemDeleter(stage); //아이템 맵에서 제거
 
@@ -49,6 +64,7 @@ bool Game::updateScreen() {
     }
     
     wrefresh(win1);
+    wrefresh(win2);
 
     /***********************테스트용 코드*************************/
     if (snake[0].x == 1 && snake[0].y == 1) {// (1,1)로 이동 시 바로 다음 스테이지
@@ -66,9 +82,11 @@ void Game::nextStage() {
         exit(1);
     }
     stage++;
+    map.setGate(stage);
     snake = makeSnake(stage); // snake 다시 만듦
     map.getMap(win1, stage); // 맵 받아옴
     item.listOfItem.clear(); //메모리관리를 위해 아이템관리하는 백터 초기화
     item.countItem = 0; // 아이템 갯수 0으로 변경
+    score.resetScore();
     wrefresh(win1);
 }

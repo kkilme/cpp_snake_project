@@ -1,4 +1,5 @@
 #pragma once
+
 #include <vector>
 #define UP 0
 #define RIGHT 1
@@ -16,14 +17,11 @@ public:
     SnakePart(int xpos, int ypos) {
         x = xpos;
         y = ypos;
-        
     }
     SnakePart() {
         x = 0;
         y = 0;
-      
     }
-  
 };
 
 bool moveSnake(int stage); // snake 움직이기, 반환값: 게임오버 여부 (true = 게임오버)

@@ -1,0 +1,45 @@
+#pragma once
+#include "Map.h"
+extern int headDir;
+
+#define UP 0
+#define RIGHT 1
+#define DOWN 2
+#define LEFT 3
+
+#define UP_LEFT 4
+#define UP_RIGHT 5
+#define DOWN_RIGHT 6
+#define DOWN_LEFT 7
+
+class Gate
+{
+public:
+	Gate(int elemY = 0, int elemX = 0)
+	{
+		y = elemY;
+		x = elemX;
+		pairPtr = NULL;
+		exitDirect = NULL;
+	}
+	//~Gate() 
+	//{
+	//	delete &x, &y, pairPtr, &exitDirect;
+	//}
+	void delGates(const int stage, Map map);
+	void setPairPtr(Gate * pair);
+	Gate * getPairPtr() const;
+	void setY(const int elem);
+	void setX(const int elem);
+	void setPos(const int elemY, const int elemX);
+	void setExitDirect(const int elem);
+	int getY() const;
+	int getX() const;
+	int getExitY() const;
+	int getExitX() const;
+private:
+	int y;
+	int x;
+	Gate * pairPtr;
+	int exitDirect;
+};
