@@ -22,10 +22,6 @@ public:
 		pairPtr = NULL;
 		exitDirect = NULL;
 	}
-	//~Gate() 
-	//{
-	//	delete &x, &y, pairPtr, &exitDirect;
-	//}
 	void delGates(const int stage, Map map);
 	void setPairPtr(Gate * pair);
 	Gate * getPairPtr() const;
@@ -38,8 +34,8 @@ public:
 	int getExitY() const;
 	int getExitX() const;
 private:
-	int y;
-	int x;
-	Gate * pairPtr;
-	int exitDirect;
+	int y;		// Gate의 y좌표
+	int x;		// Gate의 x좌표
+	Gate * pairPtr;	// Gate 쌍의 포인터
+	int exitDirect;	// Gate 에서 나갈 수 있는 방향 설정
 };

@@ -47,7 +47,7 @@ void Map::setMap(int stage, int x, int y, char k) {
     }
 }
 
-void Map::setGate(const int stage) {      
+void Map::setGate(const int stage) {      // stage 마다 wall의 위치가 달라 stage별로 함수 
     switch (stage)
     {
     case 0 : 
@@ -103,7 +103,7 @@ void Map::gateInStage0(int stage)
     if (secondNum < 28)
     {
         mapList[stage][0][1 + secondNum] = '7';
-        Gate2.setPos(0, 1 + secondNum);                    // Gate class 의 객체 Gate1 생성
+        Gate2.setPos(0, 1 + secondNum);                    // Gate class 의 객체 Gate2 생성
         Gate2.setExitDirect(DOWN);
     }
     else if (secondNum < 56)
@@ -231,7 +231,7 @@ void Map::gateInStage1(int stage)
     if (secondNum < 6)
     {
         mapList[stage][0][1 + secondNum] = '7';
-        Gate2.setPos(0, 1 + secondNum);                    // Gate class 의 객체 Gate1 생성
+        Gate2.setPos(0, 1 + secondNum);                    // Gate class 의 객체 Gate2 생성
         Gate2.setExitDirect(DOWN);
     }
     else if (secondNum < 26)

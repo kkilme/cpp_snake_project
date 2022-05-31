@@ -18,8 +18,8 @@ public:
 	void addDecItem();
 	void addGate();
 private:
-	int snake_length;
-	int num_incItem;
-	int	num_decItem;
-	int num_gate;
+	int snake_length;		// ¹ìÀÇ ±æÀÌ
+	int num_incItem;		// incItemÀ» ¸ÔÀº °¹¼ö
+	int	num_decItem;		// decItemÀ» ¸ÔÀº °¹¼ö
+	int num_gate;			// Gate¸¦ Åë°úÇÑ ¼ö
 };

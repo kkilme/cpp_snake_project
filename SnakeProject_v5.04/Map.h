@@ -11,7 +11,7 @@ public:
     // 맵을 화면에 새로운 window로 보여줌
     void getMap(WINDOW* window, int stage);
     void setMap(int stage, int x, int y, char k = 'n');
-    void setGate(const int stage);
+    void setGate(const int stage);  // gate 생성 함수
     void gateInStage0(int stage);
     void gateInStage1(int stage);
     void gateInStage2(int stage);

@@ -102,19 +102,19 @@ bool moveSnake(int stage) {
 
 
     else { // snake move logic - 자세한 내용은 struct.txt 참조
-        static int tempExitY = 0, tempExitX = 0;
-        if (map.mapList[stage][headNextY][headNextX] == GATE) {
-            score.addGate();
-            if (headNextY == Gate1.getY() && headNextX == Gate1.getX())
+        static int tempExitY = 0, tempExitX = 0;        // 꼬리가 gate에서 나왔는지 확인하기 위해 저장할 임시 변수
+        if (map.mapList[stage][headNextY][headNextX] == GATE) { // Gate 에 들어간 경우
+            score.addGate();    // gate에 들어간 횟수 +1
+            if (headNextY == Gate1.getY() && headNextX == Gate1.getX()) // Gate1에 들어간 경우
             {
-                tempExitY = Gate2.getExitY();
+                tempExitY = Gate2.getExitY();   // 꼬리가 gate에서 나왔는지 확인할 기준이 될 변수 설정
                 tempExitX = Gate2.getExitX();
-                headNextY = tempExitY;
+                headNextY = tempExitY;      // 뱀의 머리를 연결된 게이트에서 나와야 할 지점으로 설정
                 headNextX = tempExitX;
             }
             else
             {
-                tempExitY = Gate1.getExitY();
+                tempExitY = Gate1.getExitY();// Gate2에 들어간 경우
                 tempExitX = Gate1.getExitX();
                 headNextY = tempExitY;
                 headNextX = tempExitX;
@@ -126,13 +126,13 @@ bool moveSnake(int stage) {
         int tempPrevY;
         snake[0].x = headNextX;
         snake[0].y = headNextY;
-        if (snake[snake.size() - 1].y == tempExitY && snake[snake.size() - 1].x == tempExitX)
+        if (snake[snake.size() - 1].y == tempExitY && snake[snake.size() - 1].x == tempExitX)   // 꼬리가 저장했던 임시 변수의 위치에 온 경우
         {
-            map.mapList[stage][Gate1.getY()][Gate1.getX()] = '1';
+            map.mapList[stage][Gate1.getY()][Gate1.getX()] = '1';   // gate가 있던 위치를 모두 1로 교체
             map.mapList[stage][Gate2.getY()][Gate2.getX()] = '1';
-            Gate1.delGates(stage, map);
-            map.setGate(stage);
-            tempExitY = 0;
+            Gate1.delGates(stage, map);     // gate 삭제
+            map.setGate(stage);             // gate 재설정
+            tempExitY = 0;      // 임시 변수 초기화
             tempExitX = 0;
         }
         map.setMap(stage, snake[snake.size() - 1].x, snake[snake.size() - 1].y);
