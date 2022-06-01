@@ -46,6 +46,9 @@ int main() {
         return 0;
     }
     
+    if (true) {
+        cout << "asdfasdf";
+    }
     
     getch(); 
     endwin();
