@@ -88,3 +88,7 @@ void Game::nextStage() {
     score.resetScore();     // 점수 초기화
     wrefresh(win1);
 }
+
+
+// 애들 옷 입히기 참고-> window.cpp
+// (스테이지 넘어가는것) + 점수 시스템(파일) +a(const 추가)

@@ -18,7 +18,7 @@ extern ItemClass item;
 extern Gate Gate1, Gate2;
 extern Score score;
 
-vector<SnakePart> makeSnake(int stage) {
+vector<SnakePart> makeSnake(const int stage) {
     vector<SnakePart> tempsnake; // snake 생성
     tempsnake.push_back(SnakePart(15, 16)); // snake 머리가 됨(스테이지의 중앙 위치)
     tempsnake.push_back(SnakePart(15, 17)); 
@@ -73,7 +73,7 @@ void setHeadDir() {
     /*return headDir;*/ //리턴 필요 없을듯?
 }
 
-bool moveSnake(int stage) {
+bool moveSnake(const int stage) {
     int headNextX = snake[0].x + dir[headDir][0]; // 머리 다음위치 x
     int headNextY = snake[0].y + dir[headDir][1]; // 머리 다음위치 y
     bool checkIncItem = false; // 다음이 아이템'5'면 true
