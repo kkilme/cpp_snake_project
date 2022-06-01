@@ -45,11 +45,6 @@ int main() {
         endwin();
         return 0;
     }
-    
-    if (false)
-    {
-        int a = 0;
-    }
     getch(); 
     endwin();
 
