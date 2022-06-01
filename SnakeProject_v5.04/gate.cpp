@@ -45,6 +45,7 @@ int Gate::getY() const					// Gate의 y 좌표 리턴
 {
 	return this->y;
 }
+
 int Gate::getX() const					// Gate의 x 좌표 리턴
 {
 	return this->x;
@@ -68,7 +69,7 @@ int Gate::getExitY() const				// Snake가 들어오는 방향에 따라 알맞는 방향으로 Ga
 		res =  this->y + 1;
 		break;
 	case UP_LEFT:
-		if (headDir == UP)
+		if (headDir == UP || headDir == RIGHT)
 		{
 			res =  this->y - 1;
 			break;
@@ -79,7 +80,7 @@ int Gate::getExitY() const				// Snake가 들어오는 방향에 따라 알맞는 방향으로 Ga
 			break;
 		}
 	case UP_RIGHT:
-		if (headDir == RIGHT)
+		if (headDir == RIGHT || headDir == DOWN)
 		{
 			res =  this->y;
 			break;
@@ -90,7 +91,7 @@ int Gate::getExitY() const				// Snake가 들어오는 방향에 따라 알맞는 방향으로 Ga
 			break;
 		}
 	case DOWN_RIGHT:
-		if (headDir == DOWN)
+		if (headDir == DOWN || headDir == LEFT)
 		{
 			res =  this->y + 1;
 			break;
@@ -101,7 +102,7 @@ int Gate::getExitY() const				// Snake가 들어오는 방향에 따라 알맞는 방향으로 Ga
 			break;
 		}
 	case DOWN_LEFT:
-		if (headDir == LEFT)
+		if (headDir == LEFT || headDir == UP)
 		{
 			res =  this->y;
 			break;
@@ -137,7 +138,7 @@ int Gate::getExitX() const		// Snake가 들어오는 방향에 따라 알맞는 방향으로 Gate
 		res =  this->x;
 		break;
 	case UP_LEFT:
-		if (headDir == UP)
+		if (headDir == UP || headDir == RIGHT)
 		{
 			headDir = UP;
 			res = this->x;
@@ -150,7 +151,7 @@ int Gate::getExitX() const		// Snake가 들어오는 방향에 따라 알맞는 방향으로 Gate
 			break;
 		}
 	case UP_RIGHT:
-		if (headDir == RIGHT)
+		if (headDir == RIGHT || headDir == DOWN)
 		{
 			headDir = RIGHT;
 			res =  this->x + 1;
@@ -163,7 +164,7 @@ int Gate::getExitX() const		// Snake가 들어오는 방향에 따라 알맞는 방향으로 Gate
 			break;
 		}
 	case DOWN_RIGHT:
-		if (headDir == DOWN)
+		if (headDir == DOWN || headDir == LEFT)
 		{
 			headDir = DOWN;
 			res =  this->x;
@@ -176,7 +177,7 @@ int Gate::getExitX() const		// Snake가 들어오는 방향에 따라 알맞는 방향으로 Gate
 			break;
 		}
 	case DOWN_LEFT:
-		if (headDir == LEFT)
+		if (headDir == LEFT || headDir == UP)
 		{
 			headDir = LEFT;
 			res =  this->x - 1;

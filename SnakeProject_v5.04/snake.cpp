@@ -24,10 +24,10 @@ vector<SnakePart> makeSnake(const int stage) {
     tempsnake.push_back(SnakePart(15, 17)); 
     tempsnake.push_back(SnakePart(15, 18)); // snake 꼬리 2개 (처음 길이는 3)
 
-    /*테스트용 코드 - 처음 길이 6개*/
-    //tempsnake.push_back(SnakePart(16, 18)); 
-    //tempsnake.push_back(SnakePart(17, 18));
-    //tempsnake.push_back(SnakePart(17, 19));
+    /*테스트용 코드 - 처음 길이 6개*//*
+    tempsnake.push_back(SnakePart(16, 18)); 
+    tempsnake.push_back(SnakePart(17, 18));
+    tempsnake.push_back(SnakePart(17, 19));*/
     /**********************************/
 
     headDir = UP; // 처음 머리 방향은 위쪽
@@ -102,7 +102,7 @@ bool moveSnake(const int stage) {
 
 
     else { // snake move logic - 자세한 내용은 struct.txt 참조
-        static int tempExitY = 0, tempExitX = 0;        // 꼬리가 gate에서 나왔는지 확인하기 위해 저장할 임시 변수
+        static int tempExitY = 0, tempExitX = 0;        // 꼬리가 gate에서 나왔는지 확인하기 위해 저장할 임시 변수 static을 필수로 넣어야 한다.
         if (map.mapList[stage][headNextY][headNextX] == GATE) { // Gate 에 들어간 경우
             score.addGate();    // gate에 들어간 횟수 +1
             if (headNextY == Gate1.getY() && headNextX == Gate1.getX()) // Gate1에 들어간 경우
@@ -149,7 +149,11 @@ bool moveSnake(const int stage) {
         if (checkIncItem) { // '5'아이템과 충돌 시 꼬리 추가
             snake.push_back(SnakePart(PrevX, PrevY));
             checkIncItem = false;
-            score.setSnakeLength(snake.size());
+            score.addSnakeLength(); // score에 snake_length +1
+            if (Gate1.getY() == 0 && Gate1.getX() == 0)
+            {
+                map.setGate(stage);
+            }
         }
 
         else if (checkDecItem) {//'6'아이템과 충돌 시 꼬리 추가
@@ -157,7 +161,11 @@ bool moveSnake(const int stage) {
             map.setMap(stage, lastTail.x,lastTail.y);
             snake.pop_back();
             checkDecItem = false;
-            score.setSnakeLength(snake.size());
+            score.subSnakeLength(); // score에 snake_length -1
+            if (score.getDecItem() == 2)    // 만약에 dec item 2개를 먹었으면 게임 오버
+            {
+                return true;
+            }
         }
     }
     return false;

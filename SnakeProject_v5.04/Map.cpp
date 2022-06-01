@@ -3,6 +3,8 @@
 #include <stdlib.h>  
 #include <time.h>
 #include "gate.h"
+#include "snake.h"
+
 
 #define NUM_1_OF_STAGE0 112
 #define NUM_1_OF_STAGE1 176
@@ -18,7 +20,7 @@
 #define DOWN_RIGHT 6
 #define DOWN_LEFT 7
 
-
+extern vector<SnakePart> snake;
 Gate Gate1;
 Gate Gate2;
 
@@ -48,18 +50,21 @@ void Map::setMap(const int stage,const  int x, const int y,const char k) {
 }
 
 void Map::setGate(const int stage) {      // stage 마다 wall의 위치가 달라 stage별로 함수 
-    switch (stage)
+    if (snake.size() > 5 || snake.size() == 5)
     {
-    case 0 : 
-        gateInStage0(stage);
-        break;
-    case 1:
-        gateInStage1(stage);
-        break;
-    case 2 :
-        gateInStage2(stage);
-        break;
+        switch (stage)
+        {
+        case 0:
+            gateInStage0(stage);
+            break;
+        case 1:
+            gateInStage1(stage);
+            break;
+        case 2:
+            gateInStage2(stage);
+            break;
         }
+    }
 }
 
 void Map::gateInStage0(const int stage)
@@ -177,7 +182,7 @@ void Map::gateInStage1(const int stage)
     else if (firstNum < 125)
     {
         mapList[stage][1 + firstNum - 108][7] = '7';
-        Gate1.setPos(1 + firstNum - 108, 6);
+        Gate1.setPos(1 + firstNum - 108, 7);
         if (firstNum == 124)
         {
             Gate1.setExitDirect(DOWN_LEFT);
@@ -190,7 +195,7 @@ void Map::gateInStage1(const int stage)
     else if (firstNum < 142)
     {
         mapList[stage][17 - (firstNum - 125)][8] = '7';
-        Gate1.setPos(17 - (firstNum - 125), 7);
+        Gate1.setPos(17 - (firstNum - 125), 8);
         if (firstNum == 125)
         {
             Gate1.setExitDirect(DOWN_RIGHT);
@@ -215,8 +220,8 @@ void Map::gateInStage1(const int stage)
     }
     else
     {
-        mapList[stage][15 + (firstNum - 159)][21] = '7';
-        Gate1.setPos(15 + (firstNum - 159), 21);
+        mapList[stage][12 + (firstNum - 159)][21] = '7';
+        Gate1.setPos(12 + (firstNum - 159), 21);
         if (firstNum == 159)
         {
             Gate1.setExitDirect(UP_LEFT);
@@ -305,8 +310,8 @@ void Map::gateInStage1(const int stage)
     }
     else
     {
-        mapList[stage][15 - (secondNum - 159)][21] = '7';
-        Gate2.setPos(15 - (secondNum - 159), 21);
+        mapList[stage][12 + (secondNum - 159)][21] = '7';
+        Gate2.setPos(12 + (secondNum - 159), 21);
         if (secondNum == 159)
         {
             Gate2.setExitDirect(UP_LEFT);

@@ -22,6 +22,13 @@ public:
 		pairPtr = NULL;
 		exitDirect = NULL;
 	}
+	~Gate()
+	{
+		y = 0;
+		x = 0;
+		pairPtr = NULL;
+		exitDirect = NULL;
+	}
 	void delGates(const int stage, Map map);
 	void setPairPtr(Gate * pair);
 	Gate * getPairPtr() const;
