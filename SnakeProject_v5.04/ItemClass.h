@@ -17,12 +17,12 @@ class ItemClass {
         int createTime = time(NULL);
         int countItem = 0;
 
-        ItemClass(int ypos=0, int xpos=0) { // 아이템 관리할때 백터에 아이템 클래스로 넣어서 관리
+        ItemClass(const int ypos=0, const int xpos=0) { // 아이템 관리할때 백터에 아이템 클래스로 넣어서 관리
             x = xpos;
             y = ypos;
         }
 
-        void itemCreator (int stage) {
+        void itemCreator (const int stage) {
             if (countItem < 3) {
                 srand(time(NULL));
                 int boundaryY = sizeof(map.mapList[stage]) / sizeof(map.mapList[stage][0]); // 맵마다 세로길이 search
@@ -42,7 +42,7 @@ class ItemClass {
             }
         }
 
-        void itemDeleter(int stage) { //시간지나면 화면에서 아이템 지우는 함수
+        void itemDeleter(const int stage) { //시간지나면 화면에서 아이템 지우는 함수
             for (int i = 0; i < listOfItem.size(); i++) {
                 char checkMapItem = map.mapList[stage][listOfItem[i].y][listOfItem[i].x]; // 맵의 위치에 아이템있나 체크
                 if (time(NULL) - listOfItem[i].createTime >= 5 && (checkMapItem == '5' || checkMapItem == '6')) { // 생성 했을때 5초 지났나 확인

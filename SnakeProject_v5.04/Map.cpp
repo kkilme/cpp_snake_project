@@ -23,7 +23,7 @@ Gate Gate1;
 Gate Gate2;
 
 // 맵을 화면에 새로운 window로 보여줌
-void Map::getMap(WINDOW* window, int stage)
+void Map::getMap(WINDOW* window, const int stage)
 {  
     //map을 한줄씩 load 
     mvwprintw(window, 0, 0, "stage %d",stage + 1);
@@ -35,7 +35,7 @@ void Map::getMap(WINDOW* window, int stage)
 
 // 맵 특정위치 변경
 // k는 변경할 종류를 나타냄. t : snake tail, h : snake head, n : null(빈공간)
-void Map::setMap(int stage, int x, int y, char k) {
+void Map::setMap(const int stage,const  int x, const int y,const char k) {
     if (k == 'n') {
         mapList[stage][y][x] = 32;
     }
@@ -62,7 +62,7 @@ void Map::setGate(const int stage) {      // stage 마다 wall의 위치가 달라 stage
         }
 }
 
-void Map::gateInStage0(int stage)
+void Map::gateInStage0(const int stage)
 {
 
     int firstNum, secondNum;
@@ -127,7 +127,7 @@ void Map::gateInStage0(int stage)
     Gate1.setPairPtr(&Gate2);
 }
 
-void Map::gateInStage1(int stage)
+void Map::gateInStage1(const int stage)
 {
     int firstNum, secondNum;
     do
@@ -319,7 +319,7 @@ void Map::gateInStage1(int stage)
     Gate1.setPairPtr(&Gate2);
 }
 
-void Map::gateInStage2(int stage)
+void Map::gateInStage2(const int stage)
 {
     int firstNum, secondNum;
     do

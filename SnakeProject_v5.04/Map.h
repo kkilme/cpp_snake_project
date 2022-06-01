@@ -10,11 +10,11 @@ class Map {
 public:
     // 맵을 화면에 새로운 window로 보여줌
     void getMap(WINDOW* window, int stage);
-    void setMap(int stage, int x, int y, char k = 'n');
+    void setMap(const int stage, int x, int y, char k = 'n');
     void setGate(const int stage);  // gate 생성 함수
-    void gateInStage0(int stage);
-    void gateInStage1(int stage);
-    void gateInStage2(int stage);
+    void gateInStage0(const int stage);
+    void gateInStage1(const int stage);
+    void gateInStage2(const int stage);
 
 
     // '1': wall, '2':immune wall, '3': snake head, '4': snake tail, 32 :blank
