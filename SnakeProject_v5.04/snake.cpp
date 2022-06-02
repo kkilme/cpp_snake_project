@@ -34,43 +34,44 @@ vector<SnakePart> makeSnake(const int stage) {
     return tempsnake;
 }
 
-void setHeadDir() {
+bool setHeadDir() {
     int key = getch();
     switch (key) {
         case KEY_UP: // 위쪽방향키 눌렀을때
             if (headDir != DOWN) {
                 headDir = UP;
-                break;
+                return false;
             }
             else {
-                exit(0); // 반대 방향이면 gameover
+                return true; // 리턴값: 게임오버 여부
             }
         case KEY_RIGHT:
             if (headDir != LEFT) {
                 headDir = RIGHT;
-                break;
+                return false;
             }
             else {
-                exit(0);
+                return true;
             }
         case KEY_DOWN:
             if (headDir != UP) {
                 headDir = DOWN;
-                break;
+                return false;
             }
             else {
-                exit(0);
+                return true;
             }
         case KEY_LEFT:
             if (headDir != RIGHT) {
                 headDir = LEFT;
-                break;
+                return false;
             }
             else {
-                exit(0);
+                return true;
             }
+           
     }
-    /*return headDir;*/ //리턴 필요 없을듯?
+    return false;
 }
 
 bool moveSnake(const int stage) {

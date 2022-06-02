@@ -21,8 +21,8 @@ int main() {
         game.launchGame();
         int timer = 0;
         while (true) { // 게임 플레이중 계속 실행
-            setHeadDir(); //0.025초마다 key값 입력받아서 방향설정
-            if (timer >= 200) { // 일정 시간마다 화면 업데이트
+            game.gameover = setHeadDir(); //0.025초마다 key값 입력받아서 방향설정
+            if (timer >= 200 || game.gameover) { // 일정 시간마다 화면 업데이트
                 if (game.gameover) {//게임오버 체크
                     Sleep(1000); // 1초 대기 후 게임종료
                     endwin();

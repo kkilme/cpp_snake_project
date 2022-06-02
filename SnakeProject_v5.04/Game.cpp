@@ -33,13 +33,13 @@ void Game::launchGame()
     win2 = newwin(10, 30, 8, 53);
     wbkgd(win2, COLOR_PAIR(3));
     wborder(win2, '|', '|', '-', '-', '+', '+', '+', '+');
-    nodelay(stdscr, true);      //getch()의 대기 시간 없앰. 원래 키를 받아오기 전까지 프로그램이 멈추지만 그렇지 않게 설정(하는듯)
+    nodelay(win2, true);      //getch()의 대기 시간 없앰. 원래 키를 받아오기 전까지 프로그램이 멈추지만 그렇지 않게 설정(하는듯)
     
 
     win3 = newwin(10, 30, 23, 53);
     wbkgd(win3, COLOR_PAIR(3));
     wborder(win3, '|', '|', '-', '-', '+', '+', '+', '+');
-    nodelay(stdscr, true);      //getch()의 대기 시간 없앰. 원래 키를 받아오기 전까지 프로그램이 멈추지만 그렇지 않게 설정(하는듯)
+    nodelay(win3, true);      //getch()의 대기 시간 없앰. 원래 키를 받아오기 전까지 프로그램이 멈추지만 그렇지 않게 설정(하는듯)
     attroff(COLOR_PAIR(3));     //colo_pair 사용종료.
 
     snake = makeSnake(stage);   // snake 생성
