@@ -19,7 +19,7 @@ void Game::launchGame()
 {
     //컬러 설정
     start_color();
-    init_pair(1, COLOR_WHITE, COLOR_GREEN);
+    init_pair(1, COLOR_WHITE, COLOR_BLACK);
     init_pair(3, COLOR_BLACK, COLOR_WHITE);
     //새로운 창 만들기
     win1 = newwin(40, 40, 3, 3);
@@ -44,8 +44,8 @@ void Game::launchGame()
 
     snake = makeSnake(stage);   // snake 생성
     score.resetScore(); // 점수판에 초기 뱀 길이 입력
-    // 창에 맵 불러오기
-    map.getMap(win1, stage);
+    map.mapColorStart(); // 맵 요소 색상 on
+    map.getMap(win1, stage);// 창에 맵 불러오기
 
     //화면갱신
     wrefresh(win1);

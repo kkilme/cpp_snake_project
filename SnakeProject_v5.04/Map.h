@@ -15,6 +15,7 @@ public:
     void gateInStage0(const int stage);
     void gateInStage1(const int stage);
     void gateInStage2(const int stage);
+    void mapColorStart();
 
 
     // '1': wall, '2':immune wall, '3': snake head, '4': snake tail, 32 :blank

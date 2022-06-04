@@ -24,14 +24,64 @@ extern vector<SnakePart> snake;
 Gate Gate1;
 Gate Gate2;
 
+void Map::mapColorStart()
+{
+    init_pair(11, COLOR_WHITE, COLOR_WHITE); //벽
+    init_pair(33, COLOR_BLUE, COLOR_BLUE); //머리
+    init_pair(44, COLOR_CYAN, COLOR_CYAN); //꼬리
+    init_pair(55, COLOR_GREEN, COLOR_GREEN);  //increase item
+    init_pair(66, COLOR_RED, COLOR_RED);  //increase item
+    init_pair(77, COLOR_YELLOW, COLOR_YELLOW);  //increase item
+    
+
+}
+
 // 맵을 화면에 새로운 window로 보여줌
 void Map::getMap(WINDOW* window, const int stage)
-{  
+{
+    
     //map을 한줄씩 load 
     mvwprintw(window, 0, 0, "stage %d",stage + 1);
     
+    
     for (int i = 0; i < 30; i++) {
-        mvwprintw(window, i + 5, 5, mapList[stage][i]); //mapList[stage] 번째 맵 출력
+        for (int j = 0; j < 30; j++) {
+            if (mapList[stage][i][j] == '1' or mapList[stage][i][j] == '2') {
+                wattron(window, COLOR_PAIR(11));
+                mvwprintw(window, i + 5, j + 5, "%c", mapList[stage][i][j]);
+                wattroff(window, COLOR_PAIR(11));
+            }
+            else if (mapList[stage][i][j] == '3') {
+                wattron(window, COLOR_PAIR(33));
+                mvwprintw(window, i + 5, j + 5, "%c", mapList[stage][i][j]);
+                wattroff(window, COLOR_PAIR(33));
+            }
+            else if (mapList[stage][i][j] == '4') {
+                wattron(window, COLOR_PAIR(44));
+                mvwprintw(window, i + 5, j + 5, "%c", mapList[stage][i][j]);
+                wattroff(window, COLOR_PAIR(44));
+            }
+            else if (mapList[stage][i][j] == '5') {
+                wattron(window, COLOR_PAIR(55));
+                mvwprintw(window, i + 5, j + 5, "%c", mapList[stage][i][j]);
+                wattroff(window, COLOR_PAIR(55));
+            }
+            else if (mapList[stage][i][j] == '6') {
+                wattron(window, COLOR_PAIR(66));
+                mvwprintw(window, i + 5, j + 5, "%c", mapList[stage][i][j]);
+                wattroff(window, COLOR_PAIR(66));
+            }
+            else if (mapList[stage][i][j] == '7') {
+                wattron(window, COLOR_PAIR(77));
+                mvwprintw(window, i + 5, j + 5, "%c", mapList[stage][i][j]);
+                wattroff(window, COLOR_PAIR(77));
+            }
+            else {
+                mvwprintw(window, i + 5, j + 5, "%c", mapList[stage][i][j]);
+            }
+             
+        }
+        //mvwprintw(window, i + 5, 5, mapList[stage][i]); //mapList[stage] 번째 맵 출력
     }
 }
 
