@@ -5,7 +5,7 @@
 #define COND_DECITEM 2
 #define COND_GATE 2
 
-void Score::resetScore()		// 점수 리셋
+void Score::resetScore() 	// 점수 리셋
 {
 	snake_length = 3;			// 초기 뱀의 길이
 	num_incItem = 0;
@@ -46,7 +46,7 @@ void Score::addGate()			// gate를 통과할 때마다 1씩 증가
 	num_gate++;
 }
 
-int Score::getDecItem()			// 먹은 dec item 리턴
+int Score::getDecItem()	const		// 먹은 dec item 리턴
 {
 	return num_decItem;
 }

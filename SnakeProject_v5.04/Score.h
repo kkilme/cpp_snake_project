@@ -13,14 +13,14 @@ public:
 		check = ' ';
 		stageClear = false;
 	}
-	void resetScore();
+	void resetScore()  ;
 	void updateScore(WINDOW * win2);
 	void addSnakeLength();
 	void subSnakeLength();
 	void addIncItem();
 	void addDecItem();
 	void addGate();
-	int  getDecItem();
+	int  getDecItem() const ;
 	bool isClear(WINDOW* win3);
 private:
 	int snake_length;		// πÏ¿« ±Ê¿Ã

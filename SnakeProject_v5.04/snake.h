@@ -14,7 +14,7 @@ public:
     int x;
     int y;
     
-    SnakePart(int xpos, int ypos) {
+    SnakePart(const int xpos, const int ypos) {
         x = xpos;
         y = ypos;
     }

@@ -32,6 +32,7 @@ void Map::mapColorStart()
     init_pair(55, COLOR_GREEN, COLOR_GREEN);  //increase item
     init_pair(66, COLOR_RED, COLOR_RED);  //increase item
     init_pair(77, COLOR_YELLOW, COLOR_YELLOW);  //increase item
+    init_pair(99, COLOR_BLACK, COLOR_BLACK);// blank color
     
 
 }
@@ -77,11 +78,13 @@ void Map::getMap(WINDOW* window, const int stage)
                 wattroff(window, COLOR_PAIR(77));
             }
             else {
+                wattron(window, COLOR_PAIR(99));
                 mvwprintw(window, i + 5, j + 5, "%c", mapList[stage][i][j]);
+                wattron(window, COLOR_PAIR(99));
             }
              
         }
-        //mvwprintw(window, i + 5, 5, mapList[stage][i]); //mapList[stage] ¹øÂ° ¸Ê Ãâ·Â
+        
     }
 }
 
