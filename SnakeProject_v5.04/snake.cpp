@@ -36,6 +36,9 @@ vector<SnakePart> makeSnake(const int stage) {
 
 bool setHeadDir() {
     int key = getch();
+    if (snake.size() < 3) {// snake 길이가 3보다작으면 gameover
+        return true;
+    }
     switch (key) {
         case KEY_UP: // 위쪽방향키 눌렀을때
             if (headDir != DOWN) {
