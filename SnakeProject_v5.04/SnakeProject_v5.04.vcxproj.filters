@@ -27,9 +27,6 @@
     <ClInclude Include="Game.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="HomeMenu.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="snake.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -42,12 +39,12 @@
     <ClInclude Include="Score.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="HomeMenu.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -66,6 +63,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Score.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

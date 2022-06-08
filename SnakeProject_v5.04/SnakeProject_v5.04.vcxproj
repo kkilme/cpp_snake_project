@@ -22,21 +22,21 @@
     <ClInclude Include="curses.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="gate.h" />
-    <ClInclude Include="HomeMenu.h" />
     <ClInclude Include="ItemClass.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="panel.h" />
     <ClInclude Include="Score.h" />
+    <ClInclude Include="Screen.h" />
     <ClInclude Include="snake.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="gate.cpp" />
-    <ClCompile Include="HomeMenu.cpp" />
     <ClCompile Include="ItemClass.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Score.cpp" />
+    <ClCompile Include="Screen.cpp" />
     <ClCompile Include="snake.cpp" />
   </ItemGroup>
   <ItemGroup>
