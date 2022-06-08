@@ -23,14 +23,15 @@ int main() {
         while (true) { // 게임 플레이중 계속 실행
             game.gameover = setHeadDir(); //0.025초마다 key값 입력받아서 방향설정
             if (timer >= 200 || game.gameover) { // 일정 시간마다 화면 업데이트
+                game.gameStatusCheck(); // 게임 상태 체크 (게임오버/스테이지 클리어)
                 if (game.gameover) {//게임오버 체크
                     Sleep(1000); // 1초 대기 후 게임종료
                     endwin();
                     break;
                 }
                 timer = 0;
-                bool clear = game.updateScreen(); //화면 업데이트
-                if (clear) { //클리어 시 다음 스테이지
+                game.updateScreen(); //화면 업데이트
+                if (game.stageCleared) { //클리어 시 다음 스테이지
                     game.nextStage();
                 }
             }

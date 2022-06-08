@@ -53,8 +53,14 @@ void Game::launchGame()
     wrefresh(win3);
 }
 
-bool Game::updateScreen() {
-    bool isClear = score.isClear(win3);
+void Game::gameStatusCheck() {
+    if (snake.size() < 3) {// snake 길이가 3보다작으면 gameover
+        gameover = true;
+    }
+    stageCleared = score.isClear(win3);
+}
+
+void Game::updateScreen() {
     gameover = moveSnake(stage); // snake 움직이기, 반환값 gameover: 게임오버 여부
     map.setMap(stage, snake[0].x, snake[0].y, 'h'); //snake 머리 그리기
     for (int i = 1; i < snake.size(); i++) {
@@ -65,14 +71,9 @@ bool Game::updateScreen() {
     item.itemCreator(stage);    // 아이템생성
     item.itemDeleter(stage);    // 아이템 맵에서 제거
 
-    if (snake.size() < 3) {// snake 길이가 3보다작으면 gameover
-        gameover = true ;
-    }
-    
     wrefresh(win1);
     wrefresh(win2);
     wrefresh(win3);
-    return isClear;
 }
 
 
@@ -82,6 +83,7 @@ void Game::nextStage() {
         exit(1);
     }
     stage++;
+    stageCleared = false;
     snake = makeSnake(stage); // snake 다시 만듦
     map.getMap(win1, stage); // 맵 받아옴
     item.listOfItem.clear(); //메모리관리를 위해 아이템관리하는 백터 초기화
