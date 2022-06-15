@@ -25,7 +25,6 @@
     <ClInclude Include="ItemClass.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="panel.h" />
-    <ClInclude Include="record.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="snake.h" />
