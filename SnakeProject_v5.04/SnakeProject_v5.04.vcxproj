@@ -25,6 +25,7 @@
     <ClInclude Include="ItemClass.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="panel.h" />
+    <ClInclude Include="record.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="snake.h" />
@@ -35,11 +36,13 @@
     <ClCompile Include="ItemClass.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="record.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="snake.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="record.txt" />
     <Text Include="structure.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -5,14 +5,17 @@
 #include "ItemClass.h"
 #include "Score.h"
 #include "gate.h"
+#include "Screen.h"
 
 vector<SnakePart> snake;
 Map map;
 WINDOW* win1,* win2,* win3;
 extern int headDir;
 extern Gate Gate1;
+extern Screen screen;
 ItemClass item;
 Score score;
+extern void setRec();
 
 
 void Game::launchGame()
@@ -25,8 +28,8 @@ void Game::launchGame()
     win1 = newwin(40, 40, 3, 3);
     wbkgd(win1, COLOR_PAIR(1));
     wborder(win1, '|', '|', '-', '-', '+', '+', '+', '+');
-    nodelay(stdscr, true);      //getch()의 대기 시간 없앰. 원래 키를 받아오기 전까지 프로그램이 멈추지만 그렇지 않게 설정(하는듯)
-    keypad(stdscr, true);       // 키패드 값도 입력받을 수 있게 해줌. 이렇게 안할 시 방향키 입력이 안받아짐..
+    nodelay(stdscr, true);      //getch()의 대기 시간 없앰. 원래 키를 받아오기 전까지 프로그램이 멈추지만 그렇지 않게 설정
+    keypad(stdscr, true);       // 키패드 값도 입력받을 수 있게 해줌. 이렇게 안할 시 방향키 입력이 안받아짐
     attroff(COLOR_PAIR(1));     //colo_pair 사용종료.
     
     // 점수 화면
@@ -47,6 +50,8 @@ void Game::launchGame()
     map.mapColorStart(); // 맵 요소 색상 on
     map.getMap(win1, stage);// 창에 맵 불러오기
 
+    starttime = time(NULL); // 시작시간
+    setRec();
     //화면갱신
     wrefresh(win1);
     wrefresh(win2);
@@ -70,7 +75,6 @@ void Game::updateScreen() {
     score.updateScore(win2);    // 점수 업데이트
     item.itemCreator(stage);    // 아이템생성
     item.itemDeleter(stage);    // 아이템 맵에서 제거
-
     wrefresh(win1);
     wrefresh(win2);
     wrefresh(win3);
@@ -78,10 +82,6 @@ void Game::updateScreen() {
 
 
 void Game::nextStage() {
-    if (stage == 2) { // 지금은 일단 마지막 스테이지 클리어시 종료
-        endwin();
-        exit(1);
-    }
     stage++;
     stageCleared = false;
     snake = makeSnake(stage); // snake 다시 만듦
@@ -91,4 +91,13 @@ void Game::nextStage() {
     item.countItem = 0; // 아이템 갯수 0으로 변경
     score.resetScore();     // 점수 초기화
     wrefresh(win1);
+}
+
+void Game::gameCleared() {
+    nodelay(stdscr, false);
+    endtime = time(NULL);
+    delwin(win1);
+    delwin(win2);
+    delwin(win3);
+    screen.loadRecord(true, endtime-starttime);
 }

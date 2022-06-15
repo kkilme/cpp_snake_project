@@ -1,9 +1,9 @@
 #include "Score.h"
 
-#define COND_SNAKELENGTH 6
-#define COND_INCITEM 4
+#define COND_SNAKELENGTH 6//6
+#define COND_INCITEM 4//4
 #define COND_DECITEM 2
-#define COND_GATE 2
+#define COND_GATE 2//2
 
 void Score::resetScore() 	// 점수 리셋
 {

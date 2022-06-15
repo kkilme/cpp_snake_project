@@ -42,6 +42,9 @@
     <ClInclude Include="Screen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="record.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -68,8 +71,12 @@
     <ClCompile Include="Screen.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="record.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="structure.txt" />
+    <Text Include="record.txt" />
   </ItemGroup>
 </Project>

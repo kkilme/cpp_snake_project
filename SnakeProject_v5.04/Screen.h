@@ -1,10 +1,16 @@
+#pragma once
 #include "curses.h"
-
+#include <time.h>
+#include <vector>
+#include <string>
+using namespace std;
 class Screen {
 public:
     WINDOW* menu;
+    WINDOW* record;
     void loadHome();
     void loadMenu();
+    void loadRecord(bool isgamecleared, time_t cleartime = 0);
     void resetScreen();
 
 private:
