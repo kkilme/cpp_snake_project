@@ -28,13 +28,13 @@ int main() {
                 if (timer >= 200 || game.gameover) { // 일정 시간마다 화면 업데이트    
                     if (!game.gameover) { game.updateScreen(); } //화면 업데이트
                     else {//게임오버 체크
-                        Sleep(1000); // 1초 대기 후 게임종료
+                        Sleep(1000); // 1초 대기 후 게임오버
                         game.gameOvered();
                         break;
                     }
                     timer = 0;
                     if (game.stageCleared) { //클리어 시 다음 스테이지
-                        if (game.stage == 0) { // 지금은 일단 마지막 스테이지 클리어시 종료
+                        if (game.stage == 2) { // 마지막 스테이지 클리어시 게임 클리어
                             game.gameCleared();
                             break;
                         }
@@ -57,7 +57,5 @@ int main() {
     }
     getch(); 
     endwin();
-
-
     return 0;
 }
