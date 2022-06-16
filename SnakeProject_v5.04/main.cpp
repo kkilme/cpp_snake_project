@@ -29,8 +29,7 @@ int main() {
                     if (!game.gameover) { game.updateScreen(); } //화면 업데이트
                     else {//게임오버 체크
                         Sleep(1000); // 1초 대기 후 게임종료
-                        endwin();
-                        exit(1);
+                        game.gameOvered();
                         break;
                     }
                     timer = 0;

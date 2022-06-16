@@ -117,11 +117,26 @@ void Screen::loadRecord(bool iscleared, time_t cleartime) {
             mvwprintw(record, 2 * (i + 1) + 7, 6, &gametime[0]);
             mvwprintw(record, 2 * (i + 1) + 7, 24, &gamedate[0]);
         }
-        mvwprintw(record, 30, 10, "Press any key to quit the game");
+        mvwprintw(record, 30, 10, "Press any key to return to main menu");
         wborder(record, '|', '|', '-', '-', '+', '+', '+', '+');
         attroff(COLOR_PAIR(1));     //colo_pair 사용종료.
         wrefresh(record);
         saveRec(); // 파일 입출력을 통해 기록 저장
         getch();
     }
+}
+
+void Screen::gameoverScreen() {
+    resetScreen();
+    start_color();
+    init_pair(1, COLOR_BLACK, COLOR_WHITE);
+    gameover = newwin(10, 40, 15, 30); //게임오버 화면
+    // stage 선택지 띄우기
+    wbkgd(gameover, COLOR_PAIR(1));
+    mvwprintw(gameover, 2,14, "Game Over..");
+    mvwprintw(gameover, 8, 2, "Press any key to return to main menu");
+    wborder(gameover, '|', '|', '-', '-', '+', '+', '+', '+');
+    attroff(COLOR_PAIR(1));     //colo_pair 사용종료.
+    wrefresh(gameover);
+    getch();
 }

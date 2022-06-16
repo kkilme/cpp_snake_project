@@ -100,5 +100,18 @@ void Game::gameCleared() {
     delwin(win2);
     delwin(win3);
     map.resetMap();
+    item.listOfItem.clear();
+    item.countItem = 0;
     screen.loadRecord(true, endtime-starttime);
+}
+
+void Game::gameOvered() {
+    nodelay(stdscr, false);
+    delwin(win1);
+    delwin(win2);
+    delwin(win3);
+    map.resetMap();
+    item.listOfItem.clear();
+    item.countItem = 0;
+    screen.gameoverScreen();
 }

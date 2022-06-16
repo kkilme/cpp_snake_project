@@ -16,4 +16,5 @@ public:
     void nextStage(); // 다음 스테이지
     void gameStatusCheck();
     void gameCleared(); // 게임 클리어시
+    void gameOvered(); // 게임오버시
 };
