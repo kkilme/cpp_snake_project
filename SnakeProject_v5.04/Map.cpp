@@ -102,6 +102,18 @@ void Map::setMap(const int stage,const  int x, const int y,const char k) {
     }
 }
 
+void Map::resetMap() {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 30; j++) {
+            for (int k = 0; k < 31; k++) {
+                if (mapList[i][j][k] != '2' && mapList[i][j][k] != '1' && mapList[i][j][k] != 32) {
+                    mapList[i][j][k] = 32;
+                }
+            }
+        }
+    }
+}
+
 void Map::setGate(const int stage) {      // stage 마다 wall의 위치가 달라 stage별로 함수 
     if (snake.size() > 5 || snake.size() == 5)
     {

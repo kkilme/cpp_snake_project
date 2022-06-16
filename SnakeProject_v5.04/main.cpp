@@ -35,8 +35,9 @@ int main() {
                     }
                     timer = 0;
                     if (game.stageCleared) { //클리어 시 다음 스테이지
-                        if (game.stage == 2) { // 지금은 일단 마지막 스테이지 클리어시 종료
+                        if (game.stage == 0) { // 지금은 일단 마지막 스테이지 클리어시 종료
                             game.gameCleared();
+                            break;
                         }
                         game.nextStage();
                     }

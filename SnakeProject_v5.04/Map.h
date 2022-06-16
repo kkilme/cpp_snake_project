@@ -16,7 +16,8 @@ public:
     void gateInStage1(const int stage);
     void gateInStage2(const int stage);
     void mapColorStart(); // map에 나타낼 색깔 가져오기
-
+    void resetMap();
+    
 
     // '1': wall, '2':immune wall, '3': snake head, '4': snake tail, 32 :blank
     // 세로 30줄 , 가로 30줄 + '\0'(줄바꿈)

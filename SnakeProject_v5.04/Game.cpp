@@ -99,5 +99,6 @@ void Game::gameCleared() {
     delwin(win1);
     delwin(win2);
     delwin(win3);
+    map.resetMap();
     screen.loadRecord(true, endtime-starttime);
 }

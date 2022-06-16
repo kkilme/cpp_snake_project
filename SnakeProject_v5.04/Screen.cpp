@@ -123,6 +123,5 @@ void Screen::loadRecord(bool iscleared, time_t cleartime) {
         wrefresh(record);
         saveRec(); // 파일 입출력을 통해 기록 저장
         getch();
-        exit(1);
     }
 }
