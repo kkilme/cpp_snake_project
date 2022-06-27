@@ -106,7 +106,11 @@ void Map::resetMap() {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 30; j++) {
             for (int k = 0; k < 31; k++) {
-                if (mapList[i][j][k] != '2' && mapList[i][j][k] != '1' && mapList[i][j][k] != 32) {
+                if (mapList[i][j][k] == '7')
+                { 
+                    mapList[i][j][k] = '1'; 
+                }
+                else if (mapList[i][j][k] != '2' && mapList[i][j][k] != '1' && mapList[i][j][k] != 32) {
                     mapList[i][j][k] = 32;
                 }
             }

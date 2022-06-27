@@ -19,9 +19,8 @@ int main() {
             int timer = 0;
             while (true) { // 게임 플레이중 계속 실행
                 if (setHeadDir()) {  //0.025초마다 key값 입력받아서 방향설정, 가는 방향 반대키 입력시 gameover
-                    Sleep(1000); // 1초 대기 후 게임종료
-                    endwin();
-                    exit(1);
+                    Sleep(1000); // 1초 대기 후 게임오버
+                    game.gameOvered();
                     break;
                 };
                 game.gameStatusCheck(); // 게임 상태 체크 (게임오버/스테이지 클리어)
